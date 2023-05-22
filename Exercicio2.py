@@ -1,7 +1,7 @@
 
 print(' ')
-_empresa = ' LANCHONETE DO MARCELO EDUARDO ABUCHAIN : RU 4499559 ' # IDENTIFICAÇÃO PESSOAL
-print('#'*3 + _empresa + '#'*3) # PRINT TITULO
+_4499559 = ' LANCHONETE DO MARCELO EDUARDO ABUCHAIN : RU 4499559 ' # IDENTIFICAÇÃO PESSOAL
+print('#'*3 + _4499559 + '#'*3) # PRINT TITULO
 _menu = '########################### MENU ##########################\n' #CRIAÇÃO DO MENU
 _menu += '---------------------------------------------------\n'
 _menu += '|  Código |  Descrição				 |  Valor(R$) |\n'

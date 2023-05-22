@@ -1,9 +1,9 @@
-_empresa = ' LOJA DO MARCELO EDUARDO ABUCHAIN : RU 4499559 ' # IDENTIFICAÇÃO PESSOAL
+_4499559 = ' LOJA DO MARCELO EDUARDO ABUCHAIN : RU 4499559 ' # IDENTIFICAÇÃO PESSOAL
 
 _separador = '#'*60 # CRIANDO LINHA DE SEPARADOR
 
 print(_separador)
-print('#'*7 + _empresa + '#'*6) # PRINT TITULO
+print('#'*7 + _4499559 + '#'*6) # PRINT TITULO
 print('#'*21 + '   BEM VINDO !!!  ' + '#'*21) # PRINT BOAS VINDAS
 print(_separador)
 print(' ')
