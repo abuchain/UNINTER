@@ -12,7 +12,7 @@ def submenu(): #MÉTODO PARA CRIAÇÃO DO MENU SECUNDÁRIO
     _menuConsulta = '1)    Consultar Todas as Peças\n'
     _menuConsulta += '2)    Consulta Peças por Código\n'
     _menuConsulta += '3)    Consulta Peças por Fabricante\n'
-    _menuConsulta += '4)    Retornar\n'
+    _menuConsulta += '4)    Retornar'
     return _menuConsulta
 
 def proximoCodigoPeca(): #METODO PARA DEVOLVER PROXIMO CÓDIGO DE PEÇA
@@ -25,20 +25,32 @@ def proximoCodigoPeca(): #METODO PARA DEVOLVER PROXIMO CÓDIGO DE PEÇA
         return 1 #RETORNANDO CODIGO 1
 
 def cadastrarPeca(indice): #METODO PARA CADASTRAR PEÇAS
-    #OTENDO OS VALORS PARA CRIAR A PEÇA
-    _codigo = str(indice)
-    print('Você Selecionou a Opção de Cadastrar Peça')
-    print('Código da Peça: {}'.format(_codigo))
-    _nome = input('Qual o nome da peça:')
-    _fabricante = input('Qual o fabricante da peça:')
-    _valor = input('Qual o valor da peça:')
+    _codigo = indice
+    while True:  # INICIO DO LOOP PARA O MENU
+        #OTENDO OS VALORS PARA CRIAR A PEÇA
+        print('Você Selecionou a Opção de Cadastrar Peça')
+        print('Código da Peça: {}'.format(str(_codigo)))
+        _nome = input('Qual o nome da peça:')
+        _fabricante = input('Qual o fabricante da peça:')
+        _valor = input('Qual o valor da peça:')
 
-    peca = {'codigo': _codigo, 'nome': _nome, 'fabricante': _fabricante, 'valor': _valor} #CRIAÇÃO DE UM DICIONARIO COM OS VALORES COLETADOS
+        peca = {'codigo': str(_codigo), 'nome': _nome, 'fabricante': _fabricante, 'valor': _valor} #CRIAÇÃO DE UM DICIONARIO COM OS VALORES COLETADOS
 
-    listaPecas[str(indice)] = peca #ADICIONANDO O DICIONARIO AO CADASTRO, USANDO O CAMPO INDICE COMO CHAVE
-    print("Peça cadastrada com sucesso!")
+        listaPecas[str(_codigo)] = peca #ADICIONANDO O DICIONARIO AO CADASTRO, USANDO O CAMPO INDICE COMO CHAVE
+        print("Peça cadastrada com sucesso!")
+
+        opcao = input("Deseja cadastrar uma nova peça (S / N) ?") #OBTENDO O VALOR INFORMADO PELO USUÁRIO
+        if opcao.upper() == 'S': #VALIDA SE INICIA UMA NOVA INCLUSÃO DE PEÇA
+            _codigo += 1 #SOMA 1 AO UM NOVO CODIGO DE PEÇA
+            continue
+        elif opcao.upper() == 'N': #FINALIZA O FLUXO DE INCLUSÃO DE PEÇA
+            break
+        else:  # VALIDANDO UMA OPÇÃO QUE NÃO EXISTE
+            print("Opção inválida. Digite novamente.")
+
 
 def excluirPeca(): #METODO PARA EXCLUIR UMA PEÇA
+    print("Você selecionou a opção de Consultar Peças.")
     codigo = input("Digite o codigo da peça que deseja excluir: ")  # OBTENDO O VALOR INFORMADO PELO USUÁRIO
     #VERIFICANDO SE O CODIGO EXISTE NO CADASTRO
     if codigo in listaPecas:
@@ -49,8 +61,9 @@ def excluirPeca(): #METODO PARA EXCLUIR UMA PEÇA
 
 def consultarPecas():
     while True:  # INICIO DO LOOP PARA MENU SECUNDÁRIO
+        print("Você selecionou a opção de Consultar Peças.\nEscolha a opção desejada:")
         print(submenu())  # IMPRIMINDO O MENU SECUNDARIO
-        opcao2 = input("Digite a opção de consulta que vai ser executada: ")  # OBTENDO O VALOR INFORMADO PELO USUÁRIO
+        opcao2 = input(">>")  # OBTENDO O VALOR INFORMADO PELO USUÁRIO
         if (opcao2 == '1'):
             consultarTodasPecas()  # ACIONANDO O METODO PARA EXIBIR TODAS AS PEÇAS CDASTRADAS
         elif (opcao2 == '2'):
@@ -109,10 +122,7 @@ _4499559 = 'BEM VINDO AO CONTROLE DE ESTOQUE DA BICICLETARIA DE MARCELO EDUARDO 
 print('#'*3 + _4499559 + '#'*3) # PRINT TITULO
 
 while True: #INICIO DO LOOP PARA O MENU
-    #print(menu()) #IMPRIMINDO O MENU PRINCIPAL
-    #opcao = input("Digite uma opção: ") #OBTENDO O VALOR INFORMADO PELO USUÁRIO
-    opcao = input(menu()+'>>')
-
+    opcao = input(menu()+'>>') #EXIBE MENU.
     if opcao == '1':
         cadastrarPeca(proximoCodigoPeca()) #ACIONANDO METODO DE CADASTRAR PEÇA E PASSANDO O CODIGO PARA CADASTRO DA PRÓXIMA PEÇA
     elif opcao == '2':

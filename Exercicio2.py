@@ -1,4 +1,3 @@
-
 print(' ')
 _4499559 = ' LANCHONETE DO MARCELO EDUARDO ABUCHAIN : RU 4499559 ' # IDENTIFICAÇÃO PESSOAL
 print('#'*3 + _4499559 + '#'*3) # PRINT TITULO
@@ -52,11 +51,8 @@ while True:
         _produto = 'Chá Gelado'
         _valorProduto = 4.00
     else: #VALIDAÇÃO PARA OPÇÃO INVÁLIDA
-        input('Opção Inválida\n')
-        if (int(input(_strContinue)) == 1):
-            continue
-        else:
-            break
+        print('Opção Inválida\n')
+        continue
 
     _pedidoTotal += _valorProduto #SOMANDO VALOR TOTAL DO PEDIDO
 
